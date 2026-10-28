@@ -1,0 +1,9 @@
+# Cargo build output (any depth, in case a project is built outside the workspace)
+target/
+
+# IDE / editor settings
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
