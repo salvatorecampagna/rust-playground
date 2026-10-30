@@ -1,5 +1,4 @@
 use std::num::ParseIntError;
-use std::str::ParseBoolError;
 
 fn main() {
     let values = ["42", "wow", "-5", "5000000000"];
