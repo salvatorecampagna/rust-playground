@@ -16,8 +16,9 @@ next to it (its `README.md`, or `NOTES.md` for Exercism exercises).
   value; `Copy` decides whether passing it duplicates or moves.
 - `Copy` is implicit and cheap (`u32`, `bool`, `&str`). `Clone` is an explicit
   `.clone()`, which can mean copying a heap buffer.
-- A `String` is a pointer, length and capacity. Moving it copies those three
-  fields, never the text.
+- A `String` is a small value (pointer, length, capacity) that owns a heap
+  buffer. Moving it transfers ownership without cloning the text; the old
+  variable just can't be used anymore.
 - Ask for the least access needed: `&T` first, `&mut T` to modify, `T` only to
   keep or consume. Prefer `&str` over `&String` and `&[T]` over `&Vec<T>`.
 
@@ -27,8 +28,9 @@ next to it (its `README.md`, or `NOTES.md` for Exercism exercises).
   statement producing `()`. That's why a function ends without `return`, and why
   `match` and `if` can produce values.
 - `{}` is `Display` (for users), `{:?}` is `Debug` (for developers).
-- `_` in a type means "infer this", and works when only one answer is possible.
-  Function signatures and struct fields must be written out in full.
+- `_` in a type means "infer this", and works when the surrounding code pins it
+  down: in `Result<i32, _>` from `parse`, the error type follows from `i32`.
+  Function signatures and struct fields can't use `_`.
 
 ## Habits
 

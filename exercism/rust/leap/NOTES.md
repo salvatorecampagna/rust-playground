@@ -17,5 +17,6 @@
 - **A Karnaugh map helped.** With A = ÷4, B = ÷100, C = ÷400, most cells are
   impossible (C → B → A), and those don't-cares are why so many positions
   can be `_`.
-- **In Java** this would be an `if`/`else if` chain. `switch` can't match a
-  tuple of values.
+- **In Java** this would usually be an `if`/`else if` chain. Java has no
+  tuples, so matching three values in one `switch` needs a record and record
+  patterns (Java 21).

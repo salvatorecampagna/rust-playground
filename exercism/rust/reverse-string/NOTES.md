@@ -17,9 +17,11 @@
 
   The standard library leaves graphemes to a crate because the Unicode rules
   are complex and keep changing.
-- **`use UnicodeSegmentation;` is what adds `.graphemes()` to `&str`.** Remove
-  the import and the method disappears. Importing a trait adds methods to
-  existing types, which Java interfaces can't do for `String`.
+- **`.graphemes()` only works with `use unicode_segmentation::UnicodeSegmentation;`.**
+  The crate implements its trait for `str`, and the import brings the trait's
+  methods into scope; remove it and the method call stops compiling. A crate
+  can add methods to an existing type this way, which Java can't do for
+  `String`.
 - **`collect()` knows to build a `String`** because the function returns
   `String`. The turbofish isn't needed.
 - **In Java**, `char` is a UTF-16 code unit, a level below Rust's `char`.
