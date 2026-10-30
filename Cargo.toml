@@ -6,4 +6,5 @@ members = [
     # The Rust Programming Language: chapter 3
     "mutable",
     "shadow",
+    "variable",
 ]
