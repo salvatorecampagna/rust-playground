@@ -1,0 +1,40 @@
+# Raindrops: Plung
+
+A follow-up to Exercism's Raindrops exercise, with a fourth sound.
+
+## Instructions
+
+Your task is to convert a number into its corresponding raindrop sounds.
+
+If a given number:
+
+- is divisible by 3, add "Pling" to the result.
+- is divisible by 5, add "Plang" to the result.
+- is divisible by 7, add "Plong" to the result.
+- is divisible by 11, add "Plung" to the result.
+- **is not** divisible by 3, 5, 7, or 11, the result should be the number as a string.
+
+Sounds always appear in that order: Pling, Plang, Plong, Plung.
+
+## Examples
+
+- 22 is divisible by 11, but not 3, 5, or 7, so the result is `"Plung"`.
+- 33 is divisible by 3 and 11, so the result is `"PlingPlung"`.
+- 1155 is divisible by 3, 5, 7, and 11, so the result is `"PlingPlangPlongPlung"`.
+- 13 is not divisible by 3, 5, 7, or 11, so the result is `"13"`.
+
+## The real challenge
+
+Solving this with one `match` arm per combination takes 2^4 = 16 arms.
+Try to write a solution where adding a fifth sound would mean adding only
+one line.
+
+## Running the tests
+
+All but the first test are ignored. Remove the `#[ignore]` line from the next
+test in `tests/raindrops_plung.rs` once the current one passes, or run
+everything with:
+
+```bash
+cargo test -p raindrops-plung -- --include-ignored
+```

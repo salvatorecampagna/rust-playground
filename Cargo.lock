@@ -29,6 +29,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "fizzbuzz"
+version = "0.1.0"
+
+[[package]]
 name = "getrandom"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -48,16 +52,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "infertype"
+version = "0.1.0"
+
+[[package]]
 name = "libc"
 version = "0.2.191"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
 
 [[package]]
+name = "mutable"
+version = "0.1.0"
+
+[[package]]
 name = "r-efi"
 version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+
+[[package]]
+name = "raindrops-plung"
+version = "0.1.0"
 
 [[package]]
 name = "rand"
@@ -75,3 +91,11 @@ name = "rand_core"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69"
+
+[[package]]
+name = "shadow"
+version = "0.1.0"
+
+[[package]]
+name = "variable"
+version = "0.1.0"
