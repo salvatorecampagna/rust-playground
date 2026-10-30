@@ -7,4 +7,5 @@ members = [
     "mutable",
     "shadow",
     "variable",
+    "infertype",
 ]
