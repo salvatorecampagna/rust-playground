@@ -1,16 +1,6 @@
 [workspace]
 resolver = "3"
-members = [
-    # The Rust Programming Language: chapter 2
-    "guessing-game",
-    # The Rust Programming Language: chapter 3
-    "mutable",
-    "shadow",
-    "variable",
-    "infertype",
-    # Custom exercises
-    "fizzbuzz",
-    "raindrops-plung",
-]
-# Exercism downloads each exercise as a standalone Cargo project under rust/
-exclude = ["rust"]
+# New book chapters and custom exercises are picked up automatically.
+members = ["book/*", "exercises/*"]
+# Exercism downloads each exercise as a standalone Cargo project.
+exclude = ["exercism"]
