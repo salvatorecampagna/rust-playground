@@ -9,3 +9,5 @@ members = [
     "variable",
     "infertype",
 ]
+# Exercism downloads each exercise as a standalone Cargo project under rust/
+exclude = ["rust"]
