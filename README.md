@@ -1,82 +1,85 @@
-# 🦀 Rust Playground
+# Rust Playground
 
-My workspace for learning Rust: exercises from
-[*The Rust Programming Language*](https://doc.rust-lang.org/book/) ("the book"),
-the [Exercism Rust track](https://exercism.org/tracks/rust), and a few
-custom exercises written in the same style.
+[![CI](https://github.com/salvatorecampagna/rust-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/salvatorecampagna/rust-playground/actions/workflows/ci.yml)
+
+Learning Rust, coming from Java: examples from
+[*The Rust Programming Language*](https://doc.rust-lang.org/book/), exercises
+from the [Exercism Rust track](https://exercism.org/tracks/rust), and a few
+custom exercises in the same style. Each exercise has notes on what surprised
+me and why the compiler behaved the way it did. Ideas that span several
+exercises are in [NOTES.md](NOTES.md).
+
+## Exercises
+
+### The book
+
+| Chapter | Project | Topics |
+|---|---|---|
+| [2](https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html) | [Guessing Game](book/ch02-guessing-game) | `rand` 0.10, `match` on `Ordering`, `Display` vs `Debug`, moves vs `Clone` |
+| [3.1](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) | [Mutable](book/ch03-mutable) | `let` vs `let mut` |
+| [3.1](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing) | [Shadow](book/ch03-shadow) | shadowing, inner scopes |
+| [3.1](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing) | [Variable](book/ch03-variable) | shadowing with a type change |
+| [3.2](https://doc.rust-lang.org/book/ch03-02-data-types.html) | [Infer Type](book/ch03-infertype) | `parse` and inference, `Result`, `ParseIntError` |
+
+### Exercism
+
+My solutions to exercises from the [Rust track](https://exercism.org/tracks/rust)
+([profile](https://exercism.org/profiles/salvatorecampagna)).
+
+| Exercise | Solution | Topics |
+|---|---|---|
+| [Reverse String](https://exercism.org/tracks/rust/exercises/reverse-string) | [code](exercism/rust/reverse-string/src/lib.rs) · [notes](exercism/rust/reverse-string/NOTES.md) | bytes vs `char`s vs graphemes, external crates, trait methods |
+| [Leap](https://exercism.org/tracks/rust/exercises/leap) | [code](exercism/rust/leap/src/lib.rs) · [notes](exercism/rust/leap/NOTES.md) | tuple patterns, `_`, arm order |
+| [Raindrops](https://exercism.org/tracks/rust/exercises/raindrops) | [code](exercism/rust/raindrops/src/lib.rs) · [notes](exercism/rust/raindrops/NOTES.md) | rules as data, slices, building a `String` |
+
+### Custom
+
+Written in the Exercism style: a README, a `todo!()` stub, and tests that start
+out `#[ignore]`d and are enabled one at a time.
+
+| Exercise | Topics |
+|---|---|
+| [FizzBuzz](exercises/fizzbuzz) | warm-up for Raindrops: `match` on a tuple |
+| [Raindrops: Plung](exercises/raindrops-plung) *(in progress)* | does the Raindrops design scale to a fourth rule? |
+
+## Running
+
+```bash
+cargo run -p guessing-game                    # a book project
+cargo test -p fizzbuzz                        # a custom exercise: enabled tests
+cargo test -p fizzbuzz -- --include-ignored   # ...or every test
+cargo test --workspace                        # all book and custom projects
+cd exercism/rust/leap && cargo test           # an Exercism exercise (standalone)
+```
+
+`cargo test --workspace` fails on unfinished exercises (their `todo!()` panics).
+CI skips them automatically.
 
 ## Layout
 
 ```
-.
-├── Cargo.toml          # Cargo workspace: book + custom exercises
-├── guessing-game/      # the book, chapter 2
-├── mutable/ ...        # the book, chapter 3
-├── fizzbuzz/ ...       # custom Exercism-style exercises
-└── rust/               # Exercism exercises (standalone, excluded from the workspace)
+book/        # The Rust Programming Language, one crate per example (chNN-name)
+exercises/   # custom Exercism-style exercises
+exercism/    # Exercism CLI workspace; exercises land in exercism/rust/<slug>
+NOTES.md     # notes spanning several exercises
 ```
 
-Book and custom exercises are members of one
-[Cargo workspace](https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html),
-so they share a single `Cargo.lock` and `target/`. Exercism downloads each
-exercise as a standalone project under `rust/`, which the workspace excludes.
+`book/` and `exercises/` form one Cargo workspace (`members = ["book/*",
+"exercises/*"]`), so they share a `Cargo.lock` and `target/`. Exercism
+exercises are standalone projects, excluded from the workspace, so they stay
+exactly as the Exercism CLI downloads and submits them.
 
-## The book
+To add something:
 
-| Chapter | Project | What it explores |
-|---|---|---|
-| [2. Guessing Game](https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html) | [`guessing-game`](guessing-game/src/main.rs) | `rand`, `loop`, `match` on `Ordering`, moves vs `Clone` |
-| [3.1 Variables](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) | [`mutable`](mutable/src/main.rs) | `let` vs `let mut` |
-| [3.1 Variables](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) | [`shadow`](shadow/src/main.rs) | shadowing and inner scopes |
-| [3.1 Variables](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) | [`variable`](variable/src/main.rs) | shadowing with a type change (`&str` → `usize`) |
-| [3.2 Data Types](https://doc.rust-lang.org/book/ch03-02-data-types.html) | [`infertype`](infertype/src/main.rs) | type inference, `parse`, `Result`, `ParseIntError` |
+- **Book example:** `cargo new book/ch04-<name>`. The workspace picks it up.
+- **Exercism exercise:** `exercism download --track=rust --exercise=<slug>`,
+  then `exercism submit src/lib.rs` from its folder.
+- **Custom exercise:** a library crate in `exercises/` with a `README.md`, a
+  `todo!()` stub in `src/lib.rs`, and tests in `tests/`.
 
-```bash
-cargo run -p guessing-game
-```
+## CI
 
-## Exercism
-
-| Exercise | Solution | What it explores | Status |
-|---|---|---|---|
-| [Reverse String](https://exercism.org/tracks/rust/exercises/reverse-string) | [`lib.rs`](rust/reverse-string/src/lib.rs) | `chars` vs grapheme clusters, external crates, traits adding methods | ✅ incl. bonus |
-| [Leap](https://exercism.org/tracks/rust/exercises/leap) | [`lib.rs`](rust/leap/src/lib.rs) | tuple patterns, `_`, arm order | ✅ |
-| [Raindrops](https://exercism.org/tracks/rust/exercises/raindrops) | [`lib.rs`](rust/raindrops/src/lib.rs) | rules as data, slices `&[T]`, `String` building | ✅ |
-
-```bash
-cd rust/raindrops
-cargo test -- --include-ignored
-```
-
-## Custom exercises
-
-Exercism-style (README, `todo!` stub, tests ignored one at a time) but not
-part of the Exercism track.
-
-| Exercise | What it explores | Status |
-|---|---|---|
-| [`fizzbuzz`](fizzbuzz/README.md) | warm-up for Raindrops: `match` on a tuple | ✅ |
-| [`raindrops-plung`](raindrops-plung/README.md) | Raindrops with a 4th sound: does the design scale? | 🚧 |
-
-```bash
-cargo test -p fizzbuzz -- --include-ignored
-```
-
-## Notes to self
-
-**Ownership in four lines**
-
-| Parameter | Access | Ownership |
-|---|---|---|
-| `&x` | read | stays with the caller |
-| `&mut x` | read + write | stays with the caller |
-| `x` (`Copy`) | full | the function gets its own copy |
-| `x` (not `Copy`) | full | **moves** to the function |
-
-**Habits**
-
-- Read compiler errors top to bottom: labels show *why*, `help:` shows the fix.
-- `cargo fmt` and `cargo clippy` before every commit.
-- `cargo doc -p <crate> --open` documents the exact dependency versions in use.
-- Unused-variable warnings are often real bugs.
-- `match` arms: most specific first. `_` only means "not 0" because earlier arms caught the zeros.
+Each push runs `cargo fmt --check`, `cargo clippy -D warnings`, and the tests
+for every project. An exercise whose `src/` still contains `todo!()` counts as
+unfinished: it must build and pass lints, but its tests are skipped. Elsewhere
+only enabled tests run, so an exercise can be pushed halfway through.
