@@ -8,6 +8,8 @@ members = [
     "shadow",
     "variable",
     "infertype",
+    # Custom exercises
+    "fizzbuzz",
 ]
 # Exercism downloads each exercise as a standalone Cargo project under rust/
 exclude = ["rust"]
