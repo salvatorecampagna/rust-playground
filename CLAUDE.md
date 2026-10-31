@@ -101,7 +101,12 @@ exercise constraints take precedence over them:
   general explanation of what the program explores, and `// NOTE:` comments
   explain what the lines right after them demonstrate. Longer observations
   belong in the notes, not in code comments.
-- Learning notes go in a `## Notes` section of the exercise's README (book and
-  custom) or in `NOTES.md` (Exercism); cross-cutting ideas in the root
+- Learning notes go in a `## Learnings` section of the exercise's README (book
+  and custom) or of its `NOTES.md` (Exercism); cross-cutting ideas in the root
   `NOTES.md`. Record what surprised me, why Rust behaves that way, and how Java
   differs. Notes must be accurate and based on what actually happened.
+- Each learning is a `### #N — Descriptive title` heading, numbered from `#1`
+  per exercise, covering one concept. Write it in my voice from what actually
+  happened (attempts, errors, fixes); never invent experiments. End it with a
+  `**References:**` line linking the most specific authoritative page (Rust
+  Book, Reference, std or crate docs), or saying that none applies.
