@@ -30,7 +30,8 @@ the amount of code Claude writes.
 ## Layout
 
 - `book/chNN-name/` and `exercises/<name>/`: one Cargo workspace with glob
-  members; don't list projects in the root `Cargo.toml`.
+  members; don't list projects in the root `Cargo.toml`. Book packages drop
+  the chapter prefix (`book/ch03-shadow` is package `shadow`).
 - `exercism/rust/<slug>/`: standalone Exercism CLI projects, excluded from the
   workspace. Run cargo from inside the exercise directory. Preserve
   Exercism-generated files (tests, `README.md`, `HELP.md`, `.exercism/`) by

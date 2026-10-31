@@ -70,7 +70,8 @@ exactly as the Exercism CLI downloads and submits them.
 
 To add something:
 
-- **Book example:** `cargo new book/ch04-<name>`. The workspace picks it up.
+- **Book example:** `cargo new book/ch04-<name> --name <name>`. The workspace
+  picks it up; `--name` keeps the chapter prefix out of the package name.
 - **Exercism exercise:** `exercism download --track=rust --exercise=<slug>`,
   then `exercism submit src/lib.rs` from its folder.
 - **Custom exercise:** a library crate in `exercises/` with a `README.md`, a
