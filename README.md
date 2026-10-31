@@ -21,7 +21,7 @@ several exercises are in [NOTES.md](NOTES.md).
 | [3.1](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing) | [Shadow](book/ch03-shadow) | shadowing, inner scopes |
 | [3.1](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing) | [Variable](book/ch03-variable) | shadowing with a type change |
 | [3.2](https://doc.rust-lang.org/book/ch03-02-data-types.html) | [Infer Type](book/ch03-infertype) | `parse` and inference, `Result`, `ParseIntError` |
-| [3.2](https://doc.rust-lang.org/book/ch03-02-data-types.html#the-array-type) | [Arrays](book/ch03-arrays) | array types and literals, bounds checks at compile and run time |
+| [3.2](https://doc.rust-lang.org/book/ch03-02-data-types.html#the-array-type) | [Arrays](book/ch03-arrays) | array types and literals, bounds checks at compile and run time, `.get()` |
 | [3.5](https://doc.rust-lang.org/book/ch03-05-control-flow.html#if-expressions) | [If Statement](book/ch03-ifstatement) | `if` as an expression, branch types, `bool` conditions, `%` on negatives |
 
 ### Exercism

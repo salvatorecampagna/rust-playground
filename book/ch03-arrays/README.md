@@ -18,6 +18,10 @@ cargo run -p arrays
 - **Every index is bounds-checked.** Entering `10` panics at run time with
   `index out of bounds: the len is 7 but the index is 10`. A bad index never
   reads past the array, like Java's `ArrayIndexOutOfBoundsException`.
+- **`.get()` doesn't panic.** `weekdays.get(10)` returns `None`, so the program
+  prints `day: "none"` and only then panics on `weekdays[10]`. `.get()` returns
+  `Option<&&str>`, a reference to the element, so the default passed to
+  `unwrap_or` must be a reference too: `unwrap_or(&"none")`.
 - **A constant index is caught at compile time.** The commented-out
   `weekdays[10]` line doesn't compile: `this operation will panic at runtime`.
   That's the `unconditional_panic` lint (an error by default) spotting that
