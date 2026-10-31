@@ -14,13 +14,14 @@ cd "$(dirname "$0")"
 
 is_unfinished() {
   local dir
-  for dir in "${UNFINISHED[@]}"; do
+  # The ${...+...} form keeps an empty list working under set -u in bash 3.2.
+  for dir in ${UNFINISHED[@]+"${UNFINISHED[@]}"}; do
     [[ $dir == "$1" ]] && return 0
   done
   return 1
 }
 
-for dir in "${UNFINISHED[@]}"; do
+for dir in ${UNFINISHED[@]+"${UNFINISHED[@]}"}; do
   if [[ ! -f $dir/Cargo.toml ]]; then
     echo "error: $dir is listed in UNFINISHED but is not a project" >&2
     exit 1
