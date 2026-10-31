@@ -22,11 +22,12 @@ If a given number:
 
 ## Running the tests
 
-All but the first test are ignored. Remove the `#[ignore]` line from the next
-test in `tests/fizzbuzz.rs` once the current one passes, or run everything with:
+The exercise starts with every test but the first marked `#[ignore]`; remove
+the next `#[ignore]` in `tests/fizzbuzz.rs` each time the current test passes.
+This solution is complete, so all tests are enabled:
 
 ```bash
-cargo test -p fizzbuzz -- --include-ignored
+cargo test -p fizzbuzz
 ```
 
 ## Notes

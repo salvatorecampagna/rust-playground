@@ -31,12 +31,12 @@ one line.
 
 ## Running the tests
 
-All but the first test are ignored. Remove the `#[ignore]` line from the next
-test in `tests/raindrops_plung.rs` once the current one passes, or run
-everything with:
+The exercise starts with every test but the first marked `#[ignore]`; remove
+the next `#[ignore]` in `tests/raindrops_plung.rs` each time the current test
+passes. This solution is complete, so all tests are enabled:
 
 ```bash
-cargo test -p raindrops-plung -- --include-ignored
+cargo test -p raindrops-plung
 ```
 
 ## Notes
