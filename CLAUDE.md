@@ -97,6 +97,10 @@ exercise constraints take precedence over them:
 
 - README: one table row per exercise. Keep its current style: emojis only on
   the title and section headings, plain tables, the CI badge as the only badge.
+- In code, a `//!` comment at the top of `main.rs` or `lib.rs` gives a short,
+  general explanation of what the program explores, and `// NOTE:` comments
+  explain what the lines right after them demonstrate. Longer observations
+  belong in the notes, not in code comments.
 - Learning notes go in a `## Notes` section of the exercise's README (book and
   custom) or in `NOTES.md` (Exercism); cross-cutting ideas in the root
   `NOTES.md`. Record what surprised me, why Rust behaves that way, and how Java
