@@ -18,8 +18,8 @@ like `int n = num;` in Java.
 ### #2 — A bug the Exercism tests don't catch
 
 `3_999_999_999` panicked with `attempt to add with overflow`. Ten powers of up
-to 9¹⁰ don't fit in a `u32`. Debug builds panic on overflow where Java would
-silently wrap.
+to 9¹⁰ don't fit in a `u32`. The panic comes from the overflow checks that
+debug builds enable; see [Luhn #6](../luhn/NOTES.md) for release builds.
 
 **References:** [Rust Book — Integer Overflow](https://doc.rust-lang.org/book/ch03-02-data-types.html#integer-overflow) ·
 [Rust Reference — Overflow](https://doc.rust-lang.org/reference/expressions/operator-expr.html#overflow)
@@ -77,7 +77,9 @@ where it's written.
 
 ### #9 — No 10-digit Armstrong number fits in a `u32`
 
-The only one, 4,679,307,774, is above `u32::MAX`, so every 10-digit input is
-`false`.
+The only one, 4,679,307,774, is above `u32::MAX` (4,294,967,295), so every
+10-digit input is `false`. The list of all Armstrong numbers comes from OEIS,
+not from anything I computed.
 
-**References:** [`u32::MAX`](https://doc.rust-lang.org/std/primitive.u32.html#associatedconstant.MAX)
+**References:** [OEIS A005188 — Armstrong numbers](https://oeis.org/A005188) ·
+[`u32::MAX`](https://doc.rust-lang.org/std/primitive.u32.html#associatedconstant.MAX)

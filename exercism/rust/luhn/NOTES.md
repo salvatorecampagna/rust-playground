@@ -50,10 +50,18 @@ no `mut` at all.
 ### #6 — Two panics I met
 
 `.unwrap()` on `' '.to_digit(10)` (`None`), and `' ' as u8 - b'0'`, which is
-`32 - 48`: debug builds panic on overflow where Java would silently wrap.
+`32 - 48` and panicked with `attempt to subtract with overflow`.
+
+The overflow panic only happens because `cargo test` and `cargo run` use the
+debug profile, which enables overflow checks. A `--release` build disables
+them by default and wraps around silently, like Java does. To choose the
+behavior explicitly, there are `checked_*`, `wrapping_*`, `saturating_*` and
+`overflowing_*` methods (I used `checked_add` in
+[Armstrong Numbers](../armstrong-numbers/NOTES.md)).
 
 **References:** [`Option::unwrap`](https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap) ·
-[Rust Book — Integer Overflow](https://doc.rust-lang.org/book/ch03-02-data-types.html#integer-overflow)
+[Rust Book — Integer Overflow](https://doc.rust-lang.org/book/ch03-02-data-types.html#integer-overflow) ·
+[The Cargo Book — `overflow-checks`](https://doc.rust-lang.org/cargo/reference/profiles.html#overflow-checks)
 
 ### #7 — One `match` with three arms
 

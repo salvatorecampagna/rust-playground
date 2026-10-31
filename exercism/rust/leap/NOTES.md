@@ -11,7 +11,7 @@ My first solution was one boolean expression with `is_multiple_of`. The
 current one matches on `(year % 4, year % 100, year % 400)` for the
 pattern-matching practice.
 
-**References:** [`u32::is_multiple_of`](https://doc.rust-lang.org/std/primitive.u32.html#method.is_multiple_of) ·
+**References:** [`u64::is_multiple_of`](https://doc.rust-lang.org/std/primitive.u64.html#method.is_multiple_of) ·
 [Rust Reference — Tuple patterns](https://doc.rust-lang.org/reference/patterns.html#tuple-patterns)
 
 ### #2 — A pattern can't say "non-zero"
