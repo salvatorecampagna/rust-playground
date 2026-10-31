@@ -38,3 +38,13 @@ everything with:
 ```bash
 cargo test -p raindrops-plung -- --include-ignored
 ```
+
+## Notes
+
+- **The fourth rule was a one-line change.** I copied `sounds()` from my
+  [Raindrops solution](../../exercism/rust/raindrops/src/lib.rs) and only added
+  `(11, "Plung")` to the rules array; all 22 tests passed. The 8-arm `match`
+  version would have needed 16 arms.
+- **The design follows the shape of the problem.** The rules are independent,
+  so they work as data in a loop. `match` fits when exactly one case wins, as
+  in [Leap](../../exercism/rust/leap/NOTES.md).
