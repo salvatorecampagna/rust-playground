@@ -34,6 +34,7 @@ My solutions to exercises from the [Rust track](https://exercism.org/tracks/rust
 | [Reverse String](https://exercism.org/tracks/rust/exercises/reverse-string) | [code](exercism/rust/reverse-string/src/lib.rs) · [notes](exercism/rust/reverse-string/NOTES.md) | bytes vs `char`s vs graphemes, external crates, trait methods |
 | [Leap](https://exercism.org/tracks/rust/exercises/leap) | [code](exercism/rust/leap/src/lib.rs) · [notes](exercism/rust/leap/NOTES.md) | tuple patterns, `_`, arm order |
 | [Raindrops](https://exercism.org/tracks/rust/exercises/raindrops) | [code](exercism/rust/raindrops/src/lib.rs) · [notes](exercism/rust/raindrops/NOTES.md) | rules as data, slices, building a `String` |
+| [Luhn](https://exercism.org/tracks/rust/exercises/luhn) | [code](exercism/rust/luhn/src/lib.rs) · [notes](exercism/rust/luhn/NOTES.md) | `char` vs digit value, `match` with ranges, `mut` parameters, unit tests |
 
 ### Custom
 
