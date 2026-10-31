@@ -35,6 +35,7 @@ My solutions to exercises from the [Rust track](https://exercism.org/tracks/rust
 | [Leap](https://exercism.org/tracks/rust/exercises/leap) | [code](exercism/rust/leap/src/lib.rs) · [notes](exercism/rust/leap/NOTES.md) | tuple patterns, `_`, arm order |
 | [Raindrops](https://exercism.org/tracks/rust/exercises/raindrops) | [code](exercism/rust/raindrops/src/lib.rs) · [notes](exercism/rust/raindrops/NOTES.md) | rules as data, slices, building a `String` |
 | [Luhn](https://exercism.org/tracks/rust/exercises/luhn) | [code](exercism/rust/luhn/src/lib.rs) · [notes](exercism/rust/luhn/NOTES.md) | `char` vs digit value, `match` with ranges, `mut` parameters, unit tests |
+| [Armstrong Numbers](https://exercism.org/tracks/rust/exercises/armstrong-numbers) | [code](exercism/rust/armstrong-numbers/src/lib.rs) · [notes](exercism/rust/armstrong-numbers/NOTES.md) | digits with `%` and `/`, overflow and `checked_add`, `ilog10`, `match` arms that return |
 
 ### Custom
 
