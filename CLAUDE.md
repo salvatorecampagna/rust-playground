@@ -106,7 +106,15 @@ exercise constraints take precedence over them:
   `NOTES.md`. Record what surprised me, why Rust behaves that way, and how Java
   differs. Notes must be accurate and based on what actually happened.
 - Each learning is a `### #N — Descriptive title` heading, numbered from `#1`
-  per exercise, covering one concept. Write it in my voice from what actually
-  happened (attempts, errors, fixes); never invent experiments. End it with a
-  `**References:**` line linking the most specific authoritative page (Rust
-  Book, Reference, std or crate docs), or saying that none applies.
+  per exercise, covering one genuine discovery. Don't pad: a simple exercise
+  with one discovery gets one learning.
+- Use my voice for what actually happened (attempts, errors, fixes). Where
+  there's no such story, a plain factual statement is fine; never invent
+  experiments or surprises.
+- End each learning with a `**References:**` line linking the most specific
+  authoritative page (Rust Book, Reference, std or crate docs) for the exact
+  item used (`u64::is_multiple_of` when the code uses `u64`). A claim outside
+  Rust, such as a mathematical fact, needs its own source or a note on how I
+  established it. If nothing applies, say so.
+- The root `NOTES.md` stays a thematic reference with bullets, not numbered
+  learnings.
