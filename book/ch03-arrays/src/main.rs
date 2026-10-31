@@ -9,8 +9,9 @@ fn main() {
         "Saturday",
     ];
     println!("weekdays: {:?}", weekdays);
-    //NOTE: next line does not compile: index out of bounds
-    //println!("out of bounds: {:?}", weekdays[10]);
+    // NOTE: a constant out-of-bounds index is caught at compile time.
+    // Doesn't compile, `unconditional_panic` lint: this operation will panic at runtime
+    // println!("out of bounds: {:?}", weekdays[10]);
 
     let mut index = String::new();
     println!("Enter an index value");
@@ -19,6 +20,10 @@ fn main() {
         .expect("Error while reading input");
     let index: usize = index.trim().parse().expect("Error while parsing integer");
     println!("index: {}", index);
+    // NOTE: with an index from input, the check happens at run time: `.get()`
+    // returns `None` for a bad index (`unwrap_or` supplies a default), while
+    // `weekdays[index]` panics.
+    println!("day: {:?}", weekdays.get(index).unwrap_or(&"none"));
     println!("day: {:?}", weekdays[index]);
 
     let x: [u32; 3] = [10, 20, 30];
