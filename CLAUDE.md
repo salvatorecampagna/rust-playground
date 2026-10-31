@@ -32,15 +32,18 @@ the amount of code Claude writes.
 - `book/chNN-name/` and `exercises/<name>/`: one Cargo workspace with glob
   members; don't list projects in the root `Cargo.toml`.
 - `exercism/rust/<slug>/`: standalone Exercism CLI projects, excluded from the
-  workspace. Run cargo from inside the exercise directory. Don't modify their
-  tests, `README.md`, `HELP.md` or `.exercism/` unless explicitly authorized;
-  even then, removing `#[ignore]` is the only acceptable test change.
+  workspace. Run cargo from inside the exercise directory. Preserve
+  Exercism-generated files (tests, `README.md`, `HELP.md`, `.exercism/`) by
+  default and modify them only when explicitly asked; normally the only
+  expected test change is removing `#[ignore]` as an exercise progresses.
 
 ## Validation
 
 `./check.sh` is the canonical check, identical to CI: rustfmt, clippy with
 `-D warnings`, and the enabled tests of every project. Run it after any code
-change; if it fails, report the failing output and don't call the change done.
+change and report the result. Separate expected failures (a new `todo!()`
+stub, an unfinished exercise) from unexpected ones; for the latter, show the
+failing output and don't call the change done.
 
 `UNFINISHED` in `check.sh` lists exercises committed with failing tests. Add an
 entry only when committing an exercise unfinished; remove it once it passes.
@@ -76,7 +79,8 @@ docs(leap): explain why match arm order matters
 ## Rust guidelines
 
 Apply these when reviewing my code and when writing snippets or scaffolding.
-They need judgment, not mechanical enforcement:
+They need judgment, not mechanical enforcement, and learning objectives and
+exercise constraints take precedence over them:
 
 - Prefer simple, idiomatic std Rust. Add a crate only when an exercise needs
   it; for Exercism it must be on the allowed list linked in its `Cargo.toml`.
