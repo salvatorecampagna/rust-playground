@@ -39,12 +39,21 @@ passes. This solution is complete, so all tests are enabled:
 cargo test -p raindrops-plung
 ```
 
-## Notes
+## Learnings
 
-- **The fourth rule was a one-line change.** I copied `sounds()` from my
-  [Raindrops solution](../../exercism/rust/raindrops/src/lib.rs) and only added
-  `(11, "Plung")` to the rules array; all 22 tests passed. The 8-arm `match`
-  version would have needed 16 arms.
-- **The design follows the shape of the problem.** The rules are independent,
-  so they work as data in a loop. `match` fits when exactly one case wins, as
-  in [Leap](../../exercism/rust/leap/NOTES.md).
+### #1 — The fourth rule was a one-line change
+
+I copied `sounds()` from my
+[Raindrops solution](../../exercism/rust/raindrops/src/lib.rs) and only added
+`(11, "Plung")` to the rules array; all 22 tests passed. Because `sounds()`
+takes the rules as a slice, its signature didn't change. The 8-arm `match`
+version would have needed 16 arms.
+
+**References:** [Rust Book — Other Slices](https://doc.rust-lang.org/book/ch04-03-slices.html#other-slices)
+
+### #2 — The design follows the shape of the problem
+
+The rules are independent, so they work as data in a loop. `match` fits when
+exactly one case wins, as in [Leap](../../exercism/rust/leap/NOTES.md).
+
+**References:** No specific reference; this is a design observation.
