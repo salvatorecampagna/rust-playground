@@ -8,7 +8,7 @@ next to it (its `README.md`, or `NOTES.md` for Exercism exercises).
 | Parameter | Access | Ownership |
 |---|---|---|
 | `&x` | read | stays with the caller |
-| `&mut x` | read + write | stays with the caller |
+| `&mut x` | read + write, exclusive | stays with the caller |
 | `x` (`Copy`) | full | the function gets its own copy |
 | `x` (not `Copy`) | full | moves to the function |
 
@@ -19,6 +19,11 @@ next to it (its `README.md`, or `NOTES.md` for Exercism exercises).
 - A `String` is a small value (pointer, length, capacity) that owns a heap
   buffer. Moving it transfers ownership without cloning the text; the old
   variable just can't be used anymore.
+- `&mut` means exclusive, not just writable: many `&` readers or one `&mut`
+  writer, never both (E0502). A borrow lasts until its last use, not the end
+  of the block. Modifying a list while iterating over it is rejected at
+  compile time; Java catches the same bug at run time with
+  `ConcurrentModificationException`.
 - Ask for the least access needed: `&T` first, `&mut T` to modify, `T` only to
   keep or consume. Prefer `&str` over `&String` and `&[T]` over `&Vec<T>`.
 
