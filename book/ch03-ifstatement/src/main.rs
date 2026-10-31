@@ -26,7 +26,7 @@ fn main() {
     // Doesn't compile, E0317: `if` may be missing an `else` clause
     // let k = if input % 2 == 0 { "odd" };
 
-    // NOTE: an if expression needs a boolean conditionl
+    // NOTE: an if expression needs a boolean condition
     // Doesn't compile, E0308: mismatched types, expected `bool`, found `i32`
     // if input {
     //     println!("{input} is even");
