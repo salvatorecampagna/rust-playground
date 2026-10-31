@@ -41,7 +41,7 @@ out `#[ignore]`d and are enabled one at a time.
 | Exercise | Topics |
 |---|---|
 | [FizzBuzz](exercises/fizzbuzz) | warm-up for Raindrops: `match` on a tuple |
-| [Raindrops: Plung](exercises/raindrops-plung) *(in progress)* | does the Raindrops design scale to a fourth rule? |
+| [Raindrops: Plung](exercises/raindrops-plung) | does the Raindrops design scale to a fourth rule? |
 
 ## 🚀 Running
 

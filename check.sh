@@ -7,7 +7,6 @@ shopt -s nullglob
 # root. They must still be formatted and pass clippy. The script fails if a
 # listed exercise doesn't exist or already passes, so the list can't go stale.
 UNFINISHED=(
-  exercises/raindrops-plung
 )
 
 cd "$(dirname "$0")"
